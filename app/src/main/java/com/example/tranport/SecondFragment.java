@@ -38,20 +38,20 @@ public class SecondFragment extends Fragment {
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
+                                                                                                        //Ce planuri am avut la proiect daca puteam sa fac conecxiunea dintre Client-Server
         TextView f = (TextView) view.findViewById(R.id.txtfirma);
         TextView l = (TextView) view.findViewById(R.id.txtlocuri);
         TextView d = (TextView) view.findViewById(R.id.txtdurata);
         TextView p = (TextView) view.findViewById(R.id.txtplecare);
         TextView dest = (TextView) view.findViewById(R.id.txtdestinatie);
         Spinner spinner = (Spinner) view.findViewById(R.id.spinner3) ;
-
-        List<String> list = new ArrayList<String>();
+                                                                                                        //Aici luam informatile din baza de date de la server unde Locul de plecare  sub forma de string si erau bagate in lista String
+        List<String> list = new ArrayList<String>();                                                    //list.add(String/int cu ora de plecare)
         list.add("8:30");
         list.add("12:00");
         list.add("18:00");
 
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(getActivity(),android.R.layout.simple_spinner_item, list);
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(getActivity(),android.R.layout.simple_spinner_item, list);          //Se baga list de mai sus in Spinner
         arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(arrayAdapter);
 
@@ -59,31 +59,31 @@ public class SecondFragment extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id)
             {
-                String firma = parent.getItemAtPosition(position).toString();           //Ce doream sa fac
-                for(int i=0;i<list.size();++i){
+                String firma = parent.getItemAtPosition(position).toString();                                   //Se alegea firma cu care se dorea sa se faca rezervatia dupa ora de plecare
+                for(int i=0;i<list.size();++i){                                                                 //Se parcurgea
                     if(firma == "8:30")
                     {
                         f.setText("Balant Transport");
                         l.setText("10");
                         d.setText("8 ore");
-                        p.setText("Bacau");
-                        dest.setText("Targu Mures");
+                        p.setText("Targu Mures");
+                        dest.setText("Bacau");
                     }
                     else if(firma == "12:00")
                     {
                         f.setText("Geneese");
                         l.setText("24");
                         d.setText("8 ore");
-                        p.setText("Bacau");
-                        dest.setText("Targu Mures");
+                        p.setText("Targu Mures");
+                        dest.setText("Bacau");
                     }
                     else if(firma == "18:00")
                     {
                         f.setText("Vetro");
                         l.setText("18");
                         d.setText("8 ore");
-                        p.setText("Bacau");
-                        dest.setText("Targu Mures");
+                        p.setText("Targu Mures");
+                        dest.setText("Bacau");
                     }
                     else
                     {
